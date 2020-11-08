@@ -11,20 +11,19 @@ public class PhoneBook {
         this.telNumber = null;
         this.email = null;
     }
-    public PhoneBook(String telNumber){
-        this.name = telNumber;
-        this.telNumber = telNumber;
-        this.email = null;
-    }
-    public PhoneBook(String telNumber, String name){
+    public void setName(String name){
         this.name = name;
-        this.telNumber = telNumber;
-        this.email = null;
     }
-    public PhoneBook(String telNmString, String name, String email){
-        this.telNumber = telNmString;
-        this.name = name;
+    public void setTelNummber(String telNo){
+        this.telNumber = telNo;
+    }
+    public void setEmail(String email){
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "PhoneBook{" + "telNumber=" + telNumber + ", name=" + name + ", email=" + email + '}';
     }
     
 }

@@ -24,17 +24,37 @@ public class PhoneBookApp {
             switch(select){
                 case 1:
                     System.out.println("Enter phone number : ");
-                    PhoneBook newBook = new PhoneBook(sc.nextLine());
+                    PhoneBook newBook = new PhoneBook();
+                    newBook.setTelNummber(sc.nextLine());
                     
                     System.out.println("Enter name of number owner : ");
-                    
+                    newBook.setName(sc.nextLine());
                     System.out.println("Enter email of owner : ");
+                    newBook.setEmail(sc.nextLine());
+                    
+                    System.out.println(newBook);
+                    break;
+                case 2:
+                    System.out.println("Enter name you want to delete : ");
                     
                     
                     
                     break;
-                case 2:
-                    System.out.println("");
+                case 3:
+                    
+                    
+                    
+                    
+                    
+                    
+                    break;
+                case 4:
+                    
+                    
+                    
+                    
+                    
+                    break;
             }
         }while (select != 0);
     }
