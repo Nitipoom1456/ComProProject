@@ -10,7 +10,7 @@ public class PhoneBookApp {
         int select;
         int count = -1;
         PhoneBook[] phonebook = new PhoneBook[200000000];
-        
+        int case3select;
         
         
         String menuStr = "Phone Book Program. \n"
@@ -22,8 +22,6 @@ public class PhoneBookApp {
                 + "==============================================================";
         Scanner sc = new Scanner(System.in);
         
-        //System.out.println(menuStr);
-        
         
         
         
@@ -32,7 +30,7 @@ public class PhoneBookApp {
             System.out.println(menuStr);
             System.out.println("Select menu : ");
             select = sc.nextInt();
-            sc.nextLine();
+            
             switch(select){
                 case 1:
                     System.out.print("Enter phone number : ");
@@ -40,8 +38,8 @@ public class PhoneBookApp {
                     phonebook[count] = new PhoneBook();
                     phonebook[count].setTelNumber(sc.nextInt());//ถ้าใส่ String จะ error
                     System.out.print("Enter name of number owner : ");
-                    phonebook[count].setName(sc.nextLine());
                     sc.nextLine();
+                    phonebook[count].setName(sc.nextLine());
                     System.out.print("Enter email of owner : ");
                     phonebook[count].setEmail(sc.nextLine());
                     System.out.println("Phone Book SUCESSFUL!!!!!");
@@ -50,29 +48,38 @@ public class PhoneBookApp {
                 case 2:
                     System.out.println("Enter name you want to delete :");
                     sc.nextLine();
+                    String cpr = sc.nextLine();
                     for(int i = 0; i < count; i++){
-                        if(sc.nextLine().equals(phonebook[i].getName())){
+                        if(cpr.equals(phonebook[i].getName())){
                             phonebook[i].delete();
                             System.out.println("That name has been delete.");
                         }else{
-                            System.out.println("Cannot find");
+                            System.out.println("Cannot find this name");
                         }
                     }
+                    System.out.println("==============================================================");
                     //BUG*
                     break;
                 case 3:
                     //โชว์ก่อนแล้วค่อยให้เลือกว่าจะเปลี่ยนตัวใหน
-                    
-                    
-                    
-                    
+                    //เลือกจากใน list
+                    //เลือกแล้วให้เลือกอีกว่าจะ edit อะไร
+                    System.out.println("Choose list you want to edit : ");
+                    for(int i = 0; i <= count; i++){
+                            System.out.println(i + ". " + phonebook[i].toString());
+                    }
+                    System.out.println("Select list : ");
+                        //phonebook[sc.nextInt()];
+                        System.out.println("Edit name : ");
+                        System.out.println("Edit telephone number : ");
+                        System.out.println("Edit E-mail : ");
                     
                     break;
                 case 4:
                     //โชว์ทั้งหมด
                     if(count != -1){
                         for(int i = 0; i <= count; i++){
-                            System.out.println(phonebook[i].toString());
+                            System.out.println(i + ". " + phonebook[i].toString());
                         }
                     }else {
                         System.out.println("no data");

@@ -34,10 +34,12 @@ public class PhoneBook {
         this.telNumber = 0;
         this.email = null;
     }
-    
+
     @Override
     public String toString() {
-        return "PhoneBook{" + "telNumber = " + telNumber + " , name = " + name + " , email = " + email + '}';
+        return "PhoneBook{" + "telNumber = 0" + telNumber + ", name = " + getName() + ", email = " + email + '}';
     }
+    
+
     
 }
