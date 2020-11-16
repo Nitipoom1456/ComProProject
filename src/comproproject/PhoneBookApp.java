@@ -2,7 +2,7 @@
 package comproproject;
 
 import java.util.Scanner;
-import java.util.Arrays;
+//import java.util.Arrays;
 
 public class PhoneBookApp {
 
@@ -10,6 +10,7 @@ public class PhoneBookApp {
         int select;
         int count = -1;
         PhoneBook[] phonebook = new PhoneBook[200000000];
+        int noSelected;
         int case3select;
         
         
@@ -22,15 +23,12 @@ public class PhoneBookApp {
                 + "==============================================================";
         Scanner sc = new Scanner(System.in);
         
-        
-        
-        
-        
+
         do{
             System.out.println(menuStr);
-            System.out.println("Select menu : ");
+            System.out.print("Select menu : ");
             select = sc.nextInt();
-            
+            System.out.println("==============================================================");
             switch(select){
                 case 1:
                     System.out.print("Enter phone number : ");
@@ -46,19 +44,20 @@ public class PhoneBookApp {
                     System.out.println("==============================================================");
                     break;//อันนี้ ok ประมาณนึง
                 case 2:
-                    System.out.println("Enter name you want to delete :");
+                    System.out.print("Enter name you want to delete : ");
                     sc.nextLine();
                     String cpr = sc.nextLine();
                     for(int i = 0; i < count; i++){
                         if(cpr.equals(phonebook[i].getName())){
                             phonebook[i].delete();
                             System.out.println("That name has been delete.");
+                            System.out.println("==============================================================");
                         }else{
                             System.out.println("Cannot find this name");
                         }
                     }
-                    System.out.println("==============================================================");
-                    //BUG*
+                    //OK แล้วระดับนึง
+                    //ตอนแรกแม่งยังได้อยู่เลย
                     break;
                 case 3:
                     //โชว์ก่อนแล้วค่อยให้เลือกว่าจะเปลี่ยนตัวใหน
@@ -66,25 +65,61 @@ public class PhoneBookApp {
                     //เลือกแล้วให้เลือกอีกว่าจะ edit อะไร
                     System.out.println("Choose list you want to edit : ");
                     for(int i = 0; i <= count; i++){
-                            System.out.println(i + ". " + phonebook[i].toString());
+                        System.out.println("No.   Tel.       Name      Email");
+                        System.out.println(i + ". " + phonebook[i].toString());
                     }
-                    System.out.println("Select list : ");
-                        //phonebook[sc.nextInt()];
-                        System.out.println("Edit name : ");
-                        System.out.println("Edit telephone number : ");
-                        System.out.println("Edit E-mail : ");
+                    System.out.print("Select list : ");
+                    noSelected = sc.nextInt();
+                    System.out.println("==============================================================");
+                    String menuEdit = "What you want to edit?\n"
+                            + "1. Edit name\n"
+                            + "2. Edit Telnumber\n"
+                            + "3. Edit E-mail\n"
+                            + "0. Cancel\n"
+                            + "==============================================================";
                     
+                    do{
+                        System.out.println(menuEdit);
+                        System.out.print("Wanna edit : ");
+                        case3select = sc.nextInt();
+                        System.out.println("==============================================================");
+                        switch(case3select){
+                            case 1:
+                                System.out.print("Edit name : ");
+                                sc.nextLine();
+                                phonebook[case3select].setName(sc.nextLine());
+                                System.out.println("Changed name!!!");
+                                System.out.println("==============================================================");
+                                break;
+                            case 2:
+                                System.out.print("Edit telephone number : ");
+                                sc.nextInt();
+                                phonebook[case3select].setTelNumber(sc.nextInt());
+                                System.out.println("Changed telnumber!!!");
+                                System.out.println("==============================================================");
+                                break;
+                            case 3:
+                                System.out.print("Edit E-mail : ");
+                                sc.nextLine();
+                                phonebook[case3select].setEmail(sc.nextLine());
+                                System.out.println("Changed E-mail!!!");
+                                System.out.println("==============================================================");
+                                break;
+                        }
+                        System.out.println("==============================================================");
+                    }while(noSelected != 0);
                     break;
                 case 4:
                     //โชว์ทั้งหมด
                     if(count != -1){
                         for(int i = 0; i <= count; i++){
+                            System.out.println("No.   Tel.       Name      Email");
                             System.out.println(i + ". " + phonebook[i].toString());
                         }
                     }else {
                         System.out.println("no data");
                     }
-                    
+                    System.out.println("==============================================================");
                     break;
             }
         }while (select != 0);
