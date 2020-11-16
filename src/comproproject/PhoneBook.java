@@ -37,7 +37,7 @@ public class PhoneBook {
 
     @Override
     public String toString() {
-        return "PhoneBook{" + "telNumber = 0" + telNumber + ", name = " + getName() + ", email = " + email + '}';
+        return " 0" + getTelNumber() + "   " + getName() + "   " + getEmail();
     }
     
 
