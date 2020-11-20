@@ -24,6 +24,7 @@ public class PhoneBookApp {
         Scanner sc2 = new Scanner(System.in);
         Scanner sc3 = new Scanner(System.in);
         Scanner sc4 = new Scanner(System.in);
+        Scanner sc5 = new Scanner(System.in);
 
         do{
             System.out.println(menuStr);
@@ -36,7 +37,7 @@ public class PhoneBookApp {
                     count++;
                     phonebook[count] = new PhoneBook();
                     sc.nextLine();
-                    phonebook[count].setTelNumber(sc.nextLine());//ถ้าใส่ String จะ error
+                    phonebook[count].setTelNumber(sc.nextLine());
                     sc.reset();
                     System.out.print("Enter name of number owner : ");
                     phonebook[count].setName(sc.nextLine());
@@ -90,7 +91,7 @@ public class PhoneBookApp {
                             + "3. Edit E-mail\n"
                             + "0. Cancel\n"
                             + "==============================================================";
-                    
+                    if(noSelected <= count){
                     do{
                         System.out.println(menuEdit);
                         System.out.print("Wanna edit : ");
@@ -99,27 +100,28 @@ public class PhoneBookApp {
                         switch(case3select){
                             case 1:
                                 System.out.print("Edit name : ");
-                                sc.nextLine();
-                                phonebook[noSelected].setName(sc.nextLine());
+                                phonebook[noSelected].setName(sc5.nextLine());
                                 System.out.println("Changed name!!!");
                                 System.out.println("==============================================================");
                                 break;
                             case 2:
                                 System.out.print("Edit telephone number : ");
-                                sc.nextLine();
-                                phonebook[noSelected].setTelNumber(sc.nextLine());
+                                phonebook[noSelected].setTelNumber(sc5.nextLine());
                                 System.out.println("Changed telnumber!!!");
                                 System.out.println("==============================================================");
                                 break;
                             case 3:
                                 System.out.print("Edit E-mail : ");
-                                sc.nextLine();
-                                phonebook[noSelected].setEmail(sc.nextLine());
+                                phonebook[noSelected].setEmail(sc5.nextLine());
                                 System.out.println("Changed E-mail!!!");
                                 System.out.println("==============================================================");
                                 break;
                         }
+                        break;
                     }while(noSelected != 0);
+                    }else{
+                        break;
+                    }
                     }else{
                         System.out.println("no data,Please add phonebook.");
                     }
