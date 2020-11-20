@@ -2,22 +2,11 @@
 package comproproject;
 
 public class PhoneBookArr {
-    private int head = -1;
-    private String[] book;
+    private int count = -1;
+    PhoneBook[] phonebook = new PhoneBook[200000000];
     
-    
-    public PhoneBookArr(){
-        book = new String[3];
-    }
-    public void addTelNo(String telNo){
-        book[0] = telNo;
-    }
-    public void addName(String name){
-        book[1] = name;
-    }
-    public void addEmail(String email){
-        book[2] = email;
-    }
-
-
+    //public String showAllList(){
+        
+    //}
+    //public void
 }
