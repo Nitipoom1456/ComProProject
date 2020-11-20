@@ -52,9 +52,9 @@ public class PhoneBookApp {
                     String cpr = sc2.nextLine();
                     if(cpr != null){
                         for(int i = 0; i <= count; i++){
-                            if(phonebook[i].getName().equals(cpr)){
+                            if(cpr.equals(phonebook[i].getName()) || cpr.equals(phonebook[i].getTelNumber()) || cpr.equals(phonebook[i].getEmail())){
                                 phonebook[i].delete();
-                                System.out.println("That name has been delete.");
+                                System.out.println("That book has been delete.");
                                 System.out.println("==============================================================");
                             }else{
                                 System.out.println("Cannot find this name");
