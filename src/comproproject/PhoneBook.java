@@ -2,19 +2,19 @@
 package comproproject;
 
 public class PhoneBook {
-    private int telNumber;
+    private String telNumber;
     private String name;
     private String email;
     
     public PhoneBook(){
         this.name = null;
-        this.telNumber = 0;
+        this.telNumber = null;
         this.email = null;
     }
     public void setName(String name){
         this.name = name;
     }
-    public void setTelNumber(int telNo){
+    public void setTelNumber(String telNo){
         this.telNumber = telNo;
     }
     public void setEmail(String email){
@@ -23,7 +23,7 @@ public class PhoneBook {
     public String getName(){
         return name;
     }
-    public int getTelNumber(){
+    public String getTelNumber(){
         return telNumber;
     }
     public String getEmail(){
@@ -31,13 +31,14 @@ public class PhoneBook {
     }
     public void delete(){
         this.name = null;
-        this.telNumber = 0;
+        this.telNumber = null;
         this.email = null;
     }
-    
+
     @Override
     public String toString() {
-        return "PhoneBook{" + "telNumber = " + telNumber + " , name = " + name + " , email = " + email + '}';
+        return " " + getTelNumber() + "   " + getName() + "   " + getEmail();
     }
     
+
 }
