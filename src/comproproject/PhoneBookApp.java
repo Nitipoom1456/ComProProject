@@ -51,7 +51,7 @@ public class PhoneBookApp {
                     System.out.print("Enter name you want to delete : ");
                     String cpr = sc2.nextLine();
                     if(cpr != null){
-                        for(int i = 0; i < count; i++){
+                        for(int i = 0; i <= count; i++){
                             if(phonebook[i].getName().equals(cpr)){
                                 phonebook[i].delete();
                                 System.out.println("That name has been delete.");
